@@ -3,14 +3,16 @@ import type { Metadata } from 'next'
 import { Cairo } from 'next/font/google'
 import './css/globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
+import { AuthProvider } from '@/app/context/AuthContext'
+import { ToastProvider } from '@/app/context/ToastContext'
 
 const cairo = Cairo({ subsets: ["arabic", "latin"] });
 
 export const metadata: Metadata = {
-  title: 'ماتداش - نكست جي إس',
-  description: 'تم إنشاؤه بواسطة create next app',
+  title: 'BandTech - لوحة التحكم',
+  description: 'لوحة تحكم الإدارة الخاصة بـ BandTech',
   icons: {
-    icon: '/matdash-nextjs/favicon.svg',
+    icon: '/favicon.svg',
   },
 }
 
@@ -31,7 +33,9 @@ export default function RootLayout({
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange>
-          {children}
+          <AuthProvider>
+            <ToastProvider>{children}</ToastProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,14 +1,11 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import SidebarContent from './Sidebaritems'
 import SimpleBar from 'simplebar-react'
 import { Icon } from '@iconify/react'
-import FullLogo from '../shared/logo/FullLogo'
 import { Button } from '@/components/ui/button'
 import {
-  AMLogo,
   AMMenu,
   AMMenuItem,
   AMSidebar,
@@ -104,19 +101,6 @@ const SidebarLayout = ({ onClose }: { onClose?: () => void }) => {
       mode={sidebarMode}
       direction='rtl'
       className='fixed start-0 top-0 border-none bg-background z-10 h-screen'>
-      {/* Logo */}
-      <div className='px-4 flex items-center brand-logo overflow-hidden'>
-        <AMLogo component={Link} href='/' img=''>
-          {/* <FullLogo /> */}
-          <Image
-            src="/matdash-nextjs/images/logos/dark-logo.svg"
-            alt="الشعار"
-            width={135}
-            height={40}
-          />
-        </AMLogo>
-      </div>
-
       {/* Sidebar items */}
 
       <SimpleBar className='h-[calc(100vh-10vh)]'>

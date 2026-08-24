@@ -2,6 +2,7 @@
 
 import Header from './layout/header/Header'
 import Sidebar from './layout/sidebar/Sidebar'
+import { AuthGuard } from '@/app/components/shared/AuthGuard'
 
 export default function Layout({
   children,
@@ -9,7 +10,7 @@ export default function Layout({
   children: React.ReactNode
 }>) {
   return (
-    <>
+    <AuthGuard>
       <div className='flex w-full min-h-screen'>
         <div className='page-wrapper flex w-full'>
           {/* Header/sidebar */}
@@ -27,6 +28,6 @@ export default function Layout({
           </div>
         </div>
       </div>
-    </>
+    </AuthGuard>
   )
 }
